@@ -1,0 +1,53 @@
+<% if @searched_users != nil %>
+<table class="table table-striped table-bordered table-hover table-condensed">
+  <tr>
+      <th colspan="3"></th>
+    </tr>
+  <tbody>
+      <tr>
+        <td>userID</td>
+        <td>latitude</td>
+        <td>longitude</td>
+        <td>smoker</td>
+        <td>drink_level</td>
+        <td>dress_preference</td>
+        <td>ambience</td>
+        <td>transport</td>
+        <td>marital_status </td>
+        <td>hijos</td>
+        <td>birth_year</td>
+        <td>interest</td>
+        <td>personality</td>
+        <td>religion</td>
+        <td>activity</td>
+        <td>color</td>
+        <td>weight</td>
+        <td>budget</td>
+        <td>height</td>
+      </tr>
+    <% @searched_users.each do |user| %>
+      <tr>
+        <td><%= user.userID %></td>
+        <td><%= user.latitude %></td>
+        <td><%= user.longitude %></td>
+        <td><%= user.smoker %></td>
+        <td><%= user.drink_level %></td>
+        <td><%= user.dress_preference %></td>
+        <td><%= user.ambience %></td>
+        <td><%= user.transport %></td>
+        <td><%= user.marital_status %></td>
+        <td><%= user.hijos %></td>
+        <td><%= user.birth_year %></td>
+        <td><%= user.interest %></td>
+        <td><%= user.personality %></td>
+        <td><%= user.religion %></td>
+        <td><%= user.activity %></td>
+        <td><%= user.color %></td>
+        <td><%= user.weight %></td>
+        <td><%= user.budget %></td>
+        <td><%= user.height %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>

@@ -1,0 +1,114 @@
+
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Users</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <%= form_tag({:action => 'result'}, remote: true, class: "navbar-form navbar-left")  do %>
+        <div class="form-group">
+          <%= select_tag :column, options_for_select(@columns),  :include_blank => true, :class => "form-control" %>
+          <%= text_field_tag :id, nil, :class => "form-control" %>
+        </div>
+        <%= submit_tag '検索', :class => "btn btn-default" %>
+      <% end %>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<div id="result"></div>
+
+<table class="table table-striped table-bordered table-hover table-condensed">
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= link_to "userID", :sort => "userID"%></td>
+        <td><%= link_to "latitude", :sort => "latitude" %></td>
+        <td><%= link_to "longitude", :sort => "longitude" %></td>
+        <td><%= link_to "smoker", :sort => "smoker" %></td>
+        <td><%= link_to "drink_level", :sort => "drink_level" %></td>
+        <td><%= link_to "dress_preference", :sort => "dress_preference" %></td>
+        <td><%= link_to "ambience", :sort => "ambience" %></td>
+        <td><%= link_to "transport", :sort => "transport" %></td>
+        <td><%= link_to "marital_status", :sort => "marital_status" %></td>
+        <td><%= link_to "hijos", :sort => "hijos" %></td>
+        <td><%= link_to "birth_year", :sort => "birth_year" %></td>
+        <td><%= link_to "interest", :sort => "interest" %></td>
+        <td><%= link_to "personality", :sort => "personality" %></td>
+        <td><%= link_to "religion", :sort => "religion" %></td>
+        <td><%= link_to "activity", :sort => "activity" %></td>
+        <td><%= link_to "color", :sort => "color" %></td>
+        <td><%= link_to "weight", :sort => "weight" %></td>
+        <td><%= link_to "budget", :sort => "budget" %></td>
+        <td><%= link_to "height", :sort => "height" %></td>
+      </tr>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.userID %></td>
+        <td><%= user.latitude %></td>
+        <td><%= user.longitude %></td>
+        <td><%= user.smoker %></td>
+        <td><%= user.drink_level %></td>
+        <td><%= user.dress_preference %></td>
+        <td><%= user.ambience %></td>
+        <td><%= user.transport %></td>
+        <td><%= user.marital_status %></td>
+        <td><%= user.hijos %></td>
+        <td><%= user.birth_year %></td>
+        <td><%= user.interest %></td>
+        <td><%= user.personality %></td>
+        <td><%= user.religion %></td>
+        <td><%= user.activity %></td>
+        <td><%= user.color %></td>
+        <td><%= user.weight %></td>
+        <td><%= user.budget %></td>
+        <td><%= user.height %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</body>
